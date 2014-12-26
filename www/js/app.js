@@ -25,7 +25,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     uiGmapGoogleMapApiProvider.configure({
         //    key: 'your api key',
         v: '3.17',
-        libraries: 'weather,geometry,visualization'
+        libraries: 'weather,geometry,visualization,places'
     });
 })
 
@@ -46,22 +46,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     // Each tab has its own nav history stack:
 
-    .state('tab.dash', {
-      url: '/dash',
+    .state('tab.map', {
+      url: '/map',
       views: {
-        'tab-dash': {
-          templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl'
+        'tab-map': {
+          templateUrl: 'templates/tab-map.html',
+          controller: 'MapCtrl'
         }
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.leaderboard', {
+      url: '/leaderboard',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-leaderboard': {
+          templateUrl: 'templates/tab-leaderboard.html',
+          controller: 'LeaderCtrl'
         }
       }
     })
@@ -86,7 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/map');
 
 });
 

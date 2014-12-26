@@ -3,7 +3,7 @@ angular.module('starter.controllers', [
 	'ngStorage'
 ])
 
-.controller('DashCtrl', function($scope, Markers, uiGmapGoogleMapApi) {
+.controller('MapCtrl', function($scope, Markers, uiGmapGoogleMapApi) {
 
 	$scope.map = {
 		center: {
@@ -14,11 +14,10 @@ angular.module('starter.controllers', [
 	};
 
 	$scope.markers = Markers.all();
-	console.log( Markers.all() );
 
 	uiGmapGoogleMapApi.then(function(maps) {
-		console.log('ready?');
-		//google.maps.event.trigger(map, 'resize'); // define map?
+		console.log('map ready');
+		// Should $scope.map be defined in here?
     });
 
 	var events = {
@@ -26,12 +25,12 @@ angular.module('starter.controllers', [
       	console.log(searchBox);
       }
     }
-    $scope.searchbox = { template:'searchbox.tpl.html', events:events};
+    $scope.searchbox = { template:'templates/searchbox.tpl.html', events:events};
 
 })
 
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
+.controller('LeaderCtrl', function($scope, Deals) {
+  $scope.deals = Deals.all();
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
