@@ -1,0 +1,43 @@
+<ion-view title="Map" hide-nav-bar="true">
+
+<ion-header-bar align-title="left" class="bar-positive">
+  <div class="buttons">
+    
+    <div id="gmap-searchbox" class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Address">
+    </label>
+    <button class="button button-small button-royal">Search</button>
+  </div>
+
+  </div>
+  <h1 class="title center">&nbsp;</h1>
+  <div class="buttons">
+    <button class="button button-balanced">Add Marker</button>
+  </div>
+</ion-header-bar>
+
+  <ion-content class="map">
+
+    <ui-gmap-google-map
+    	center='map.center'
+    	zoom='map.zoom'
+    	doCluster="true"
+    >
+
+    	<ui-gmap-search-box
+    		parentdiv="gmap-searchbox"
+    		template="searchbox.template"
+    		events="searchbox.events"
+        position="top-left"
+    	>
+        </ui-gmap-search-box>
+
+    	<ui-gmap-markers models="markers" coords="'self'" icon="'icon'">
+        </ui-gmap-markers>
+
+    </ui-gmap-google-map>
+
+  </ion-content>
+</ion-view>
+
