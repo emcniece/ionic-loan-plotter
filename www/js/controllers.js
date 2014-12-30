@@ -29,8 +29,17 @@ angular.module('starter.controllers', [
 
 })
 
-.controller('DealsCtrl', function($scope, Deals) {
-  $scope.deals = Deals.all();
+.controller('DealsCtrl', function($scope, Deals, Users) {
+  var dealerUsers = Users.all();
+  var allDeals = Deals.all();
+
+  // Load user object into each deal
+  angular.forEach(allDeals, function(deal, key){
+    allDeals[key].user = getObjByKey('id', deal.userId, dealerUsers);
+  });
+
+  // Populate view
+  $scope.deals = allDeals;
 })
 
 .controller('LeaderCtrl', function($scope, Deals) {

@@ -52,4 +52,26 @@ angular.module('starter.services', [])
     }
   }
 }) // Deals
+
+.factory('Users', function(){
+
+  var users = [
+    {id: 0, userNum: 100012500, name: "John Carmack"},
+    {id: 1, userNum: 100012501, name: "Edward Kenway"},
+    {id: 2, userNum: 100012502, name: "Max Payne"}
+  ];
+
+  return {
+    all: function(){
+      return users;
+    },
+    get: function(userId){
+      return users[userId];
+    },
+    getById: function(userId){
+      return getObjByKey('id', userId, users);
+    }
+  }
+}) // Users
+
 ;
