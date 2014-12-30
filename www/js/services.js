@@ -51,5 +51,5 @@ angular.module('starter.services', [])
       return tmpDeals;
     }
   }
-})
+}) // Deals
 ;

@@ -29,6 +29,10 @@ angular.module('starter.controllers', [
 
 })
 
+.controller('DealsCtrl', function($scope, Deals) {
+  $scope.deals = Deals.all();
+})
+
 .controller('LeaderCtrl', function($scope, Deals) {
   $scope.deals = Deals.all();
 })
